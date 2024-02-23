@@ -61,6 +61,13 @@
 	}
 }
 
+.header-area.style-2 {
+	.site-header {
+		position: relative;
+		top: 0;
+	}
+}
+
 
 .site-header .navigation {
 	background-color: transparent;
@@ -498,7 +505,7 @@
 		>ul li a:hover,
 		>ul li a:focus {
 			text-decoration: none;
-			color: $white;
+			color: $dark-gray;
 		}
 
 		// style for widther screen

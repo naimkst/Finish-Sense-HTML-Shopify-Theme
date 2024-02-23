@@ -130,6 +130,13 @@ a.read-more {
 // project-area
 
 .project-area {
+	padding-bottom: 90px;
+	@media(max-width:991px) {
+		padding-bottom: 30px;
+	}
+	@media(max-width:575px) {
+		padding-bottom: 0;
+	}
 	.project-item {
 		@media(max-width:991px) {
 			margin-bottom: 30px;
@@ -141,6 +148,43 @@ a.read-more {
 
 			img {
 				width: 100%;
+
+				@media(max-width:575px) {
+					min-height: 300px;
+					object-fit: cover;
+				}
+			}
+
+			.date {
+				position: absolute;
+				left: 20px;
+				top: 20px;
+				width: 81px;
+				height: 95px;
+				background: $theme-primary-color;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				align-items: center;
+
+				h2 {
+					font-size: 38px;
+					font-weight: normal;
+					line-height: 40px;
+					font-style: normal;
+					color: #ffffff;
+					margin-bottom: 0;
+
+					span {
+						display: block;
+						font-size: 16px;
+						font-weight: normal;
+						line-height: 27px;
+						font-style: normal;
+						color: #ffffff;
+					}
+				}
 			}
 
 			.project-text {
@@ -381,6 +425,7 @@ a.read-more {
 	.blog-item {
 		border: 1px solid #d8d8d8;
 		border-radius: 5px;
+
 		@media(max-width:1199px) {
 			margin-bottom: 30px;
 		}
@@ -398,6 +443,7 @@ a.read-more {
 			@media(max-width:1399px) {
 				min-height: 360px;
 			}
+
 			@media(max-width:767px) {
 				min-height: 100%;
 			}
@@ -465,6 +511,7 @@ a.read-more {
 			@media(max-width:1199px) {
 				font-size: 50px;
 			}
+
 			@media(max-width:991px) {
 				font-size: 40px;
 				line-height: 55px;
@@ -600,5 +647,43 @@ a.read-more {
 		width: calc(100% - 25px);
 		float: none;
 		clear: both;
+	}
+}
+
+// breadcrumbs-section
+
+
+.breadcrumbs-section {
+	.breadcrumbs-left {
+		h2 {
+			font-size: 41px;
+			font-weight: bold;
+			line-height: 55px;
+			font-style: normal;
+			text-align: left;
+			color: #111111;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			border-top: 3px solid $theme-primary-color;
+			border-bottom: 3px solid $theme-primary-color;
+			margin-bottom: 0;
+
+			@media(max-width:1199px) {
+				font-size: 35px;
+			}
+
+			@media(max-width:991px) {
+				font-size: 30px;
+				line-height: 45px;
+			}
+		}
+
+	}
+	
+	.breadcrumbs-right {
+		p {
+			font-size: 17px;
+		}
+
 	}
 }
