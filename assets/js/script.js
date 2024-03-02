@@ -226,149 +226,6 @@
     });
 
 
-
-    /*------------------------------------------
-        = POPUP VIDEO
-    -------------------------------------------*/
-    if ($(".video-btn").length) {
-        $(".video-btn").on("click", function () {
-            $.fancybox({
-                href: this.href,
-                type: $(this).data("type"),
-                'title': this.title,
-                helpers: {
-                    title: { type: 'inside' },
-                    media: {}
-                },
-
-                beforeShow: function () {
-                    $(".fancybox-wrap").addClass("gallery-fancybox");
-                }
-            });
-            return false
-        });
-    }
-
-
-    /*------------------------------------------
-        = ACTIVE GALLERY POPUP IMAGE
-    -------------------------------------------*/
-    if ($(".popup-gallery").length) {
-        $('.popup-gallery').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-
-            gallery: {
-                enabled: true
-            },
-
-            zoom: {
-                enabled: true,
-
-                duration: 300,
-                easing: 'ease-in-out',
-                opener: function (openerElement) {
-                    return openerElement.is('img') ? openerElement : openerElement.find('img');
-                }
-            }
-        });
-    }
-
-
-    /*------------------------------------------
-        = FUNCTION FORM SORTING GALLERY
-    -------------------------------------------*/
-    function sortingGallery() {
-        if ($(".sortable-gallery .gallery-filters").length) {
-            var $container = $('.gallery-container');
-            $container.isotope({
-                filter: '*',
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false,
-                }
-            });
-
-            $(".gallery-filters li a").on("click", function () {
-                $('.gallery-filters li .current').removeClass('current');
-                $(this).addClass('current');
-                var selector = $(this).attr('data-filter');
-                $container.isotope({
-                    filter: selector,
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear',
-                        queue: false,
-                    }
-                });
-                return false;
-            });
-        }
-    }
-
-    sortingGallery();
-
-
-    /*------------------------------------------
-        = MASONRY GALLERY SETTING
-    -------------------------------------------*/
-    function masonryGridSetting() {
-        if ($('.masonry-gallery').length) {
-            var $grid = $('.masonry-gallery').masonry({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-item',
-                percentPosition: true
-            });
-
-            $grid.imagesLoaded().progress(function () {
-                $grid.masonry('layout');
-            });
-        }
-    }
-
-    // masonryGridSetting();
-
-
-    /*------------------------------------------
-      = FUNFACT
-  -------------------------------------------*/
-    if ($(".odometer").length) {
-        $('.odometer').appear();
-        $(document.body).on('appear', '.odometer', function (e) {
-            var odo = $(".odometer");
-            odo.each(function () {
-                var countNumber = $(this).attr("data-count");
-                $(this).html(countNumber);
-            });
-        });
-    }
-
-
-    /*------------------------------------------
-            = Header search toggle
-        -------------------------------------------*/
-    if ($(".header-search-form-wrapper").length) {
-        var searchToggleBtn = $(".search-toggle-btn");
-        var searchToggleBtnIcon = $(".search-toggle-btn i");
-        var searchContent = $(".header-search-form");
-        var body = $("body");
-
-        searchToggleBtn.on("click", function (e) {
-            searchContent.toggleClass("header-search-content-toggle");
-            searchToggleBtnIcon.toggleClass("fi flaticon-search fi ti-close");
-            e.stopPropagation();
-        });
-
-        body.on("click", function () {
-            searchContent.removeClass("header-search-content-toggle");
-        }).find(searchContent).on("click", function (e) {
-            e.stopPropagation();
-        });
-    }
-
-
-    
      // Creative-agency-testimonial-area
      if ($(".testimonial-area").length) {
         $('.testimonial-active').slick({
@@ -405,6 +262,96 @@
     }
 
     
+
+    /*------------------------------------------
+        = project-active
+    -------------------------------------------*/
+    if ($(".project-active").length) {
+        $(".project-active").owlCarousel({
+            autoplay: false,
+            smartSpeed: 300,
+            margin: 20,
+            loop: true,
+            autoplayHoverPause: true,
+            dots: false,
+            navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
+            nav: false,
+            autoWidth:true,
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: true,
+                    nav: false,
+                    autoWidth:false,
+                },
+
+                500: {
+                    items: 1,
+                    dots: true,
+                    nav: false,
+                    autoWidth:false,
+                },
+
+                768: {
+                    items: 2,
+                    autoWidth:false,
+                },
+                992: {
+                    items: 3,
+                    autoWidth:false,
+                },
+                1200: {
+                    items: 3,
+                },
+                1400: {
+                    items: 3
+                },
+
+            }
+        });
+    }
+    /*------------------------------------------
+        = blog-active
+    -------------------------------------------*/
+    if ($(".blog-active").length) {
+        $(".blog-active").owlCarousel({
+            autoplay: false,
+            smartSpeed: 300,
+            margin: 20,
+            loop: true,
+            autoplayHoverPause: true,
+            dots: false,
+            navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: true,
+                    nav: false,
+                },
+
+                500: {
+                    items: 1,
+                    dots: true,
+                    nav: false,
+                },
+
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1200: {
+                    items: 3,
+                },
+                1400: {
+                    items: 3
+                },
+
+            }
+        });
+    }
 
 
     /*------------------------------------------
@@ -493,8 +440,6 @@
     $(window).on('load', function () {
 
         preloader();
-
-        sortingGallery();
 
         toggleMobileNavigation();
 
