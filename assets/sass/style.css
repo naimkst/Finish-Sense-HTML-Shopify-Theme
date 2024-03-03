@@ -2349,7 +2349,7 @@ img {
     padding: 0;
     border: 0;
     position: fixed;
-    left: -320px;
+    right: -320px;
     top: 0px;
     z-index: 999999;
     opacity: 0;
@@ -2408,7 +2408,7 @@ img {
     border: 1px solid #fff;
   }
   .site-header .slideInn {
-    left: 0 !important;
+    right: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
