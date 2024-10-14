@@ -3838,12 +3838,14 @@ resorce-details
 }
 
 .resorce-details .accordion-header,
-.resorce-details .inner-accordion-header {
+.resorce-details .inner-accordion-header,
+.resorce-details .inner-inner-accordion-header {
   padding-left: 20px;
   position: relative;
 }
 .resorce-details .accordion-header:before,
-.resorce-details .inner-accordion-header:before {
+.resorce-details .inner-accordion-header:before,
+.resorce-details .inner-inner-accordion-header:before {
   position: absolute;
   left: 0;
   top: 50%;
@@ -3853,7 +3855,8 @@ resorce-details
   transition: all 0.3s;
 }
 .resorce-details .accordion-header.active:before,
-.resorce-details .inner-accordion-header.active:before {
+.resorce-details .inner-accordion-header.active:before,
+.resorce-details .inner-inner-accordion-header.active:before {
   content: "\f0d7";
 }
 

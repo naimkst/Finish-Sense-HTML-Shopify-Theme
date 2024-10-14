@@ -480,30 +480,32 @@
 
 
     $(document).ready(function() {
-        // Outer accordion
         $('.accordion-header').click(function() {
-          // Toggle the clicked header and its content
           $(this).toggleClass('active');
           var $content = $(this).next('.accordion-content');
           $content.toggleClass('active');
-      
-          // Remove the active class from all other headers and their contents
           $('.accordion-header').not(this).removeClass('active');
           $('.accordion-content').not($content).removeClass('active');
         });
-      
-        // Inner accordion
         $('.inner-accordion-header').click(function() {
-          // Toggle the clicked inner header and its content
           $(this).toggleClass('active');
           var $innerContent = $(this).next('.inner-accordion-content');
           $innerContent.toggleClass('active');
-      
-          // Remove the active class from all other inner headers and their contents
           $(this).closest('.inner-accordion').find('.inner-accordion-header').not(this).removeClass('active');
           $(this).closest('.inner-accordion').find('.inner-accordion-content').not($innerContent).removeClass('active');
         });
       });
+
+
+      $(document).ready(function() {
+        $(document).on('click', '.inner-inner-accordion-header', function() {
+            $(this).toggleClass('active');
+            var $innerContent = $(this).next('.inner-accordion-content');
+            $innerContent.toggleClass('active');
+            $(this).closest('.inner-accordion-item').siblings().find('.inner-inner-accordion-header').removeClass('active');
+            $(this).closest('.inner-accordion-item').siblings().find('.inner-accordion-content').removeClass('active');
+        });
+    });
       
 
 
